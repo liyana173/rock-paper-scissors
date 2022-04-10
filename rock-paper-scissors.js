@@ -18,15 +18,15 @@ function playRound(playerSelection, computerSelection) {
         switch (playerSelection.toLowerCase()) {
             case 'rock':
                 result = 'tie';
-                return ('Tie!');
+                //return ('Tie!');
                 break;
             case 'paper':
                 result = 'win';
-                return ('You win! Paper beats rock!');
+                //return ('You win! Paper beats rock!');
                 break;
             case 'scissors':
                 result = 'lose';
-                return ('You lose! Rock beats scissors!');
+                //return ('You lose! Rock beats scissors!');
                 break;
         }
     }
@@ -35,15 +35,15 @@ function playRound(playerSelection, computerSelection) {
         switch (playerSelection.toLowerCase()) {
             case 'rock':
                 result = 'lose';
-                return ('You lose! Paper beats rock!');
+                //return ('You lose! Paper beats rock!');
                 break;
             case 'paper':
                 result = 'tie';
-                return ('Tie!');
+                //return ('Tie!');
                 break;
             case 'scissors':
                 result = 'win';
-                return ('You win! Scissors beat paper!');
+                //return ('You win! Scissors beat paper!');
                 break;
         }
     }
@@ -52,22 +52,73 @@ function playRound(playerSelection, computerSelection) {
         switch (playerSelection.toLowerCase()) {
             case 'rock':
                 result = 'win';
-                return ('You win! Rock beats scissors!');
+                //return ('You win! Rock beats scissors!');
                 break;
             case 'paper':
                 result = 'lose';
-                return ('You lose! Scissors beat paper!');
+                //return ('You lose! Scissors beat paper!');
                 break;
             case 'scissors':
                 result = 'tie';
-                return ('Tie!');
+                //return ('Tie!');
                 break;
         }
     }
+
+    return result;
 }
 
-
-let playerSelection = 'rock';
+/*let playerSelection = "scissors";
 let computerSelection = computerPlay();
 console.log(computerSelection)
-console.log(playRound(playerSelection, computerSelection))
+console.log(playRound(playerSelection, computerSelection));*/
+
+
+function game() {
+    //create variables for playerScore and computerScore
+    //if playerScore < computerScore, computer wins and vice versa
+
+    let playerScore = 0;
+    let computerScore = 0;
+    let result;
+    let playerSelection;
+    let computerSelection;
+
+    for (let i = 0; i < 5; i++) {
+        playerSelection = prompt('Rock, paper or scissors?').toLowerCase();
+        computerSelection = computerPlay()
+        result = playRound(playerSelection, computerSelection);
+        if (result == 'win') {
+            playerScore += 1;
+            console.log('You win!')
+        }
+
+        else if (result == 'lose') {
+            computerScore += 1;
+            console.log('You lose!')
+        }
+
+        else {
+            console.log("It's a tie!")
+        }
+
+    
+
+        console.log(`Your play: ${playerSelection}
+Computer's play: ${computerSelection}
+Your score: ${playerScore}
+Computer's score: ${computerScore}`)
+    }
+
+    if (playerScore > computerScore) {
+        return ('You win!');
+    } else if (playerScore < computerScore) {
+        return ('You lose!');
+    } else {
+        return ('Tie');
+    }
+
+
+}
+
+//console.log(game())
